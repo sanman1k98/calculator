@@ -1,19 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+		<title>Calculator</title>
+	</head>
+
+
+	<body>
+
+		<h1 id="display">0</h1>
+		<table>
+			<tr>
+				<td><button>7</button></td>
+				<td><button>8</button></td>
+				<td><button>9</button></td>
+				<td><button>+</button></td>
+			</tr>
+			<tr>
+				<td><button>4</button></td>
+				<td><button>5</button></td>
+				<td><button>6</button></td>
+				<td><button>-</button></td>
+			</tr>
+			<tr>
+				<td><button>1</button></td>
+				<td><button>2</button></td>
+				<td><button>3</button></td>
+				<td><button>x</button></td>
+			</tr>
+			<tr>
+				<td><button>0</button></td>
+				<td><button>.</button></td>
+				<td><button>=</button></td>
+				<td><button>/</button></td>
+			</tr>
+		</table>
+
+
 		<script>
 			let casio = null;
 			import("./modules/calculator.js").then( ({ default: calc }) => {
-				casio = new calc()
+				casio = new calc();
+				const display = document.querySelector("#display");
+				const btns = document.querySelectorAll("button");
+				for (btn of btns) {
+					btn.addEventListener("click", e => {
+						casio.handle_click(e);
+						display.textContent = casio.display;
+					});
+				}
 			})
 		</script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
-    <title>Calculator</title>
-</head>
-<body>
-
-</body>
+	</body>
 </html>
