@@ -62,15 +62,10 @@ class calculator {
 		const result = this.operations[this.#operation](x, y);
 
 		this.#display = result.toString();
-		this.#operands = result
+		this.#operands[0] = result
 	}
 
-	handle_click(e) {
-		const btn = e.target.textContent;
-		this.input(btn);
-	}
-
-	input(btn) {
+	parse_input(btn) {
 		const num = parseInt(btn)
 
 		if (!isNaN(num)) {
@@ -91,6 +86,11 @@ class calculator {
 			default:
 				this.set_op(btn);
 		}
+	}
+
+	handle_click(e) {
+		const btn = e.target.textContent;
+		this.parse_input(btn);
 	}
 
 	get display() {
