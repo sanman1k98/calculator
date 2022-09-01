@@ -7,7 +7,7 @@ class calculator {
 	#current_operand;
 	#prev_event;
 
-	static operations = {
+	operations = {
 		"+": (x, y) => x + y,
 		"-": (x, y) => x - y,
 		"x": (x, y) => x * y,
@@ -39,15 +39,14 @@ class calculator {
 			this.#prev_event = null;
 		}
 
-		let num = this.#operands[this.#current_operand];
 		let decimal_point = this.#display.indexOf(".");
 
 		if (decimal_point === -1) {
-			this.#display.concat(x);
+			this.#display = this.#display.concat(x);
 		} else if (x === ".") {
 			return;
 		} else {
-			this.#display.concat(x);
+			this.#display = this.#display.concat(x);
 		}
 
 		this.#operands[this.#current_operand] = parseFloat(this.#display);
@@ -100,4 +99,4 @@ class calculator {
 	}
 }
 
-export default { calculator };
+export default calculator;
