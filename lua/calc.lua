@@ -14,7 +14,7 @@ local operations = {
 
 local append_digit = function(x)
   local display_num = tonumber(display)
-  local is_float = display_num:type() == "float"
+  local is_float = math.type(display_num) == "float"
   local last_digit = display[#display - 1]
 
   if x == "." and is_float or last_digit == "." then
@@ -38,7 +38,7 @@ local clear = function()
 end
 
 M.print_display = function()
-  print(display)
+  print("[ Calculator ]: ", display)
 end
 
 M.press_button = function(b)
