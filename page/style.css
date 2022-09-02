@@ -1,0 +1,9 @@
+#container {
+	font-family: monospace;
+	width: 113px;
+	margin: 5rem;
+}
+
+#display {
+	text-align: right;
+}
