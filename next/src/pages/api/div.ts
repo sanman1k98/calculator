@@ -3,10 +3,11 @@ import type { Input } from "../../interfaces/Input"
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
 
-  const { body, method }: { body: Input, method?: string | undefined } = req
+  const { body, method } = req
+  const { x, y } = body as Input
 
   if (method === 'POST') {
-    const result = body.x / body.y
+    const result = x / y
     if ( typeof result !== "number" ) {
       res.status(500).end({ error: "Not a Number" })
     }
