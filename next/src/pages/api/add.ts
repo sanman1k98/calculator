@@ -1,17 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
+
+  // TODO: create a type for the body
   const {
-    body: { leftOperand, rightOperand },
+    body: { left, right },
     method,
   } = req
 
-  switch (method) {
-    case 'POST':
-      res.status(200).json({ result: leftOperand + rightOperand })
-      break
-    default:
-      res.setHeader('Allow', ['POST'])
-      res.status(405).end(`Method ${method} Not Allowed`)
+  if (method === 'POST') {
+    res.status(200).json({ result: left + right })
+  } else {
+    res.setHeader('Allow', ['POST'])
+    res.status(405).end(`Method ${method} Not Allowed`)
   }
 }
