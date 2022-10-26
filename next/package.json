@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "test": "playwright test tests/",
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
