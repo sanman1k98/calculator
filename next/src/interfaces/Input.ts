@@ -1,4 +1,4 @@
-export type Input {
+export type Input = {
   x: number,
   y: number,
   z?: number,
