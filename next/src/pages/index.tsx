@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Button from "~/components/Button";
 
-const Home: NextPage = () => {
+const Calculator: NextPage = () => {
   return (
     <>
       <Head>
@@ -10,9 +11,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Calculator</h1>
+      <div className="flex justify-items-center items-center h-screen w-screen font-mono">
+        <div className="max-w-xs mx-auto bg-cyan-100">
+          <h1 className="text-2xl">Calculator display</h1>
+        </div>
+      </div>
     </>
   );
 };
 
-export default Home;
+export default Calculator;
