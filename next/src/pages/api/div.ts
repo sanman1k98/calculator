@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { Input } from "../../interfaces/Input"
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+export default function apiHandler(req: NextApiRequest, res: NextApiResponse) {
 
   const { body, method } = req
   const { x, y } = body as Input
