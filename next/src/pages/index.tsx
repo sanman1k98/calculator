@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Button from "~/components/Button";
 
 const Calculator: NextPage = () => {
   return (
@@ -12,8 +11,10 @@ const Calculator: NextPage = () => {
       </Head>
 
       <div className="flex justify-items-center items-center h-screen w-screen font-mono">
-        <div className="max-w-xs mx-auto bg-cyan-100">
-          <h1 className="text-2xl">Calculator display</h1>
+        <div className="max-w-xs mx-auto rounded-md shadow-lg bg-cyan-100">
+          <h1 className="text-2xl p-2">
+            Calculator display
+          </h1>
         </div>
       </div>
     </>
