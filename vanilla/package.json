@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "serve": "node ./server.mjs"
+  },
   "devDependencies": {
     "nodemon": "^2.0.20"
   },
