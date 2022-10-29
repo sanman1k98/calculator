@@ -44,19 +44,18 @@
 		</div>
 
 
-		<script>
-			let casio = null;
-			import("./modules/calculator.js").then( ({ default: calc }) => {
-				casio = new calc();
-				const display = document.querySelector("#display");
-				const btns = document.querySelectorAll("button");
-				for (btn of btns) {
-					btn.addEventListener("click", e => {
-						casio.handle_click(e);
-						display.textContent = casio.display;
-					});
-				}
-			})
+		<script type="module">
+			import calc from "./modules/calculator"
+
+			const casio = new calc();
+			const display = document.querySelector("#display");
+			const btns = document.querySelectorAll("button");
+			for (btn of btns) {
+				btn.addEventListener("click", e => {
+					casio.handle_click(e);
+					display.textContent = casio.display;
+				});
+			}
 		</script>
 	</body>
 </html>
