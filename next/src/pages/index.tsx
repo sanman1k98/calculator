@@ -6,8 +6,9 @@ import Button, { ButtonProps } from "~/components/Button";
 type ButtonHandler = React.MouseEventHandler<HTMLButtonElement>
 
 const Calculator: NextPage = () => {
-  const [operation, setOperation] = useState("")
   const [display, setDisplay] = useState("");
+  const [operation, setOperation] = useState("");
+  const [float, setFloat] = useState(false);
 
   const handleNumClick: ButtonHandler = (e) => {
     console.log(`Clicked on: ${e.currentTarget.textContent}`)
@@ -26,6 +27,16 @@ const Calculator: NextPage = () => {
   const OpButton = ({ children }: ButtonProps) => {
     return <Button onClick={handleOpClick} className="bg-orange-400 hover:bg-orange-300">{children}</Button>
   }
+
+  const handleDotClick: ButtonHandler = () => {
+    if (float) return;
+    setDisplay(display + ".");
+    setFloat(true);
+  }
+
+  const DotButton = ({ className, children }: ButtonProps) => {
+    return <Button onClick={handleDotClick} className={className}>{children}</Button>
+  } 
 
   return (
     <>
@@ -55,8 +66,8 @@ const Calculator: NextPage = () => {
             <NumButton>2</NumButton>
             <NumButton>3</NumButton>
             <OpButton>+</OpButton>
-            <Button>.</Button>
             <NumButton className="col-span-2 rounded-bl-lg">0</NumButton>
+            <DotButton>.</DotButton>
             <Button className="rounded-br-lg">=</Button>
           </div>
         </div>
