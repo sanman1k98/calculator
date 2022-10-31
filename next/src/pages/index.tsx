@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import Button from "~/components/Button";
 
 const Calculator: NextPage = () => {
-  const [display, setDisplay] = useState("0");
   const [operation, setOperation] = useState("")
+  const [display, setDisplay] = useState("");
 
   const handleNumClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     console.log(`Clicked on: ${e.currentTarget.textContent}`)
@@ -36,7 +36,9 @@ const Calculator: NextPage = () => {
       <div className="flex h-screen w-screen items-center justify-items-center font-mono">
         <div className="mx-auto w-96">
           <div className="grid grid-cols-4 gap-0 drop-shadow-lg">
-            <h1 className="text-right text-white bg-neutral-500 p-4 text-2xl col-span-4 rounded-t-lg">{display}</h1>
+            <h1 className="text-right text-white bg-neutral-500 p-4 text-2xl col-span-4 rounded-t-lg">
+              {display === "" ? "0" : display}
+            </h1>
             <Button className="col-span-3">C</Button>
             <OpButton>/</OpButton>
             <NumButton>7</NumButton>
