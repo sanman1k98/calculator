@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Button from "~/components/Button";
 
 const Calculator: NextPage = () => {
+
   return (
     <>
       <Head>
@@ -10,11 +12,28 @@ const Calculator: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex justify-items-center items-center h-screen w-screen font-mono">
-        <div className="max-w-xs mx-auto rounded-md shadow-lg bg-cyan-100">
-          <h1 className="text-2xl p-2">
-            Calculator display
-          </h1>
+      <div className="flex h-screen w-screen items-center justify-items-center font-mono">
+        <div className="mx-auto max-w-xs rounded-md bg-cyan-100 shadow-lg">
+          <div className="font-sans grid grid-cols-4 gap-0 ">
+            <h1 className="text-calcGray-700 bg-calcGray-400 p-2 text-2xl col-span-4 rounded-t-lg">Calculator display</h1>
+            <Button className="bg-calcGray-300 col-span-3">Clear</Button>
+            <Button className="bg-calcOrange-100">/</Button>
+            <Button className="bg-calcGray-100">7</Button>
+            <Button className="bg-calcGray-100">8</Button>
+            <Button className="bg-calcGray-100">9</Button>
+            <Button className="bg-calcOrange-100">x</Button>
+            <Button className="bg-calcGray-100">4</Button>
+            <Button className="bg-calcGray-100">5</Button>
+            <Button className="bg-calcGray-100">6</Button>
+            <Button className="bg-calcOrange-100">-</Button>
+            <Button className="bg-calcGray-100">1</Button>
+            <Button className="bg-calcGray-100">2</Button>
+            <Button className="bg-calcGray-100">3</Button>
+            <Button className="bg-calcOrange-100">+</Button>
+            <Button className="bg-calcGray-100 col-span-2 rounded-bl-lg">0</Button>
+            <Button className="bg-calcGray-100">.</Button>
+            <Button className="bg-calcOrange-100 rounded-br-lg">=</Button>
+          </div>
         </div>
       </div>
     </>
