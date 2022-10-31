@@ -36,7 +36,16 @@ const Calculator: NextPage = () => {
 
   const DotButton = ({ className = "" }) => {
     return <Button onClick={handleDotClick} className={className}>.</Button>
-  } 
+  }
+
+  const handleClearClick: ButtonHandler = () => {
+    setDisplay("");
+    setFloat(false);
+  }
+
+  const ClearButton = ({ className = "" }) => {
+    return <Button onClick={handleClearClick} className={className}>C</Button>
+  }
 
   return (
     <>
@@ -52,7 +61,7 @@ const Calculator: NextPage = () => {
             <h1 className="text-right text-white bg-neutral-500 p-4 text-2xl col-span-4 rounded-t-lg">
               {display === "" ? "0" : display}
             </h1>
-            <Button className="col-span-3">C</Button>
+            <ClearButton className="col-span-3" />
             <OpButton>/</OpButton>
             <NumButton>7</NumButton>
             <NumButton>8</NumButton>
