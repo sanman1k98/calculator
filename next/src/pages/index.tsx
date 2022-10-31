@@ -1,8 +1,19 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import React, { useState } from "react";
 import Button from "~/components/Button";
 
 const Calculator: NextPage = () => {
+  const [display, setDisplay] = useState("0");
+
+  const handleNum: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    console.log(`Clicked on: ${e.currentTarget.textContent}`)
+    setDisplay(display + e.currentTarget.textContent)
+  }
+
+  const NumButton = ({ children }: { children: React.ReactNode }) => {
+    return <Button onClick={handleNum}>{children}</Button>
+  }
 
   return (
     <>
@@ -13,22 +24,22 @@ const Calculator: NextPage = () => {
       </Head>
 
       <div className="flex h-screen w-screen items-center justify-items-center font-mono">
-        <div className="mx-auto max-w-xs rounded-md">
+        <div className="mx-auto w-96">
           <div className="grid grid-cols-4 gap-0 drop-shadow-lg">
-            <h1 className="text-white bg-neutral-500 p-4 text-2xl col-span-4 rounded-t-lg">Calculator display</h1>
+            <h1 className="text-right text-white bg-neutral-500 p-4 text-2xl col-span-4 rounded-t-lg">{display}</h1>
             <Button className="col-span-3">C</Button>
             <Button>/</Button>
-            <Button>7</Button>
-            <Button>8</Button>
-            <Button>9</Button>
+            <NumButton>7</NumButton>
+            <NumButton>8</NumButton>
+            <NumButton>9</NumButton>
             <Button>x</Button>
-            <Button>4</Button>
-            <Button>5</Button>
-            <Button>6</Button>
+            <NumButton>4</NumButton>
+            <NumButton>5</NumButton>
+            <NumButton>6</NumButton>
             <Button>-</Button>
-            <Button>1</Button>
-            <Button>2</Button>
-            <Button>3</Button>
+            <NumButton>1</NumButton>
+            <NumButton>2</NumButton>
+            <NumButton>3</NumButton>
             <Button>+</Button>
             <Button className="col-span-2 rounded-bl-lg">0</Button>
             <Button>.</Button>
