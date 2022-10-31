@@ -1,13 +1,15 @@
 type ButtonProps = {
     onClick?: () => void,
     className?: string,
-    children?: any,
+    children: React.ReactNode,
 }
 
-
-export default function Button(props: ButtonProps) {
+export default function Button(props: ButtonProps): JSX.Element {
     return (
-        <button onClick={props.onClick} className={`hover:bg-calcOrange-200 text-white py-2 ${props.className || ""}`}>
+        <button
+            onClick={props.onClick}
+            className={`bg-neutral-400 hover:bg-neutral-300 text-white py-2 ${props.className || ""}`}
+        >
             {props.children}
         </button>
     )

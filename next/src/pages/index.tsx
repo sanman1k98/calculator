@@ -13,26 +13,26 @@ const Calculator: NextPage = () => {
       </Head>
 
       <div className="flex h-screen w-screen items-center justify-items-center font-mono">
-        <div className="mx-auto max-w-xs rounded-md bg-cyan-100 shadow-lg">
-          <div className="font-sans grid grid-cols-4 gap-0 ">
-            <h1 className="text-calcGray-700 bg-calcGray-400 p-2 text-2xl col-span-4 rounded-t-lg">Calculator display</h1>
-            <Button className="bg-calcGray-300 col-span-3">Clear</Button>
-            <Button className="bg-calcOrange-100">/</Button>
-            <Button className="bg-calcGray-100">7</Button>
-            <Button className="bg-calcGray-100">8</Button>
-            <Button className="bg-calcGray-100">9</Button>
-            <Button className="bg-calcOrange-100">x</Button>
-            <Button className="bg-calcGray-100">4</Button>
-            <Button className="bg-calcGray-100">5</Button>
-            <Button className="bg-calcGray-100">6</Button>
-            <Button className="bg-calcOrange-100">-</Button>
-            <Button className="bg-calcGray-100">1</Button>
-            <Button className="bg-calcGray-100">2</Button>
-            <Button className="bg-calcGray-100">3</Button>
-            <Button className="bg-calcOrange-100">+</Button>
-            <Button className="bg-calcGray-100 col-span-2 rounded-bl-lg">0</Button>
-            <Button className="bg-calcGray-100">.</Button>
-            <Button className="bg-calcOrange-100 rounded-br-lg">=</Button>
+        <div className="mx-auto max-w-xs rounded-md">
+          <div className="grid grid-cols-4 gap-0 drop-shadow-lg">
+            <h1 className="text-white bg-neutral-500 p-4 text-2xl col-span-4 rounded-t-lg">Calculator display</h1>
+            <Button className="col-span-3">C</Button>
+            <Button>/</Button>
+            <Button>7</Button>
+            <Button>8</Button>
+            <Button>9</Button>
+            <Button>x</Button>
+            <Button>4</Button>
+            <Button>5</Button>
+            <Button>6</Button>
+            <Button>-</Button>
+            <Button>1</Button>
+            <Button>2</Button>
+            <Button>3</Button>
+            <Button>+</Button>
+            <Button className="col-span-2 rounded-bl-lg">0</Button>
+            <Button>.</Button>
+            <Button className="rounded-br-lg">=</Button>
           </div>
         </div>
       </div>
