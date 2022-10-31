@@ -5,14 +5,24 @@ import Button from "~/components/Button";
 
 const Calculator: NextPage = () => {
   const [display, setDisplay] = useState("0");
+  const [operation, setOperation] = useState("")
 
-  const handleNum: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleNumClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     console.log(`Clicked on: ${e.currentTarget.textContent}`)
     setDisplay(display + e.currentTarget.textContent)
   }
 
   const NumButton = ({ children }: { children: React.ReactNode }) => {
-    return <Button onClick={handleNum}>{children}</Button>
+    return <Button onClick={handleNumClick}>{children}</Button>
+  }
+
+  const handleOpClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    console.log(`Set operation to: ${e.currentTarget.textContent}`);
+    setOperation(e.currentTarget.textContent || "");
+  }
+
+  const OpButton = ({ children }: { children: React.ReactNode }) => {
+    return <Button onClick={handleOpClick} className="bg-orange-400 hover:bg-orange-300">{children}</Button>
   }
 
   return (
@@ -28,19 +38,19 @@ const Calculator: NextPage = () => {
           <div className="grid grid-cols-4 gap-0 drop-shadow-lg">
             <h1 className="text-right text-white bg-neutral-500 p-4 text-2xl col-span-4 rounded-t-lg">{display}</h1>
             <Button className="col-span-3">C</Button>
-            <Button>/</Button>
+            <OpButton>/</OpButton>
             <NumButton>7</NumButton>
             <NumButton>8</NumButton>
             <NumButton>9</NumButton>
-            <Button>x</Button>
+            <OpButton>x</OpButton>
             <NumButton>4</NumButton>
             <NumButton>5</NumButton>
             <NumButton>6</NumButton>
-            <Button>-</Button>
+            <OpButton>-</OpButton>
             <NumButton>1</NumButton>
             <NumButton>2</NumButton>
             <NumButton>3</NumButton>
-            <Button>+</Button>
+            <OpButton>+</OpButton>
             <Button className="col-span-2 rounded-bl-lg">0</Button>
             <Button>.</Button>
             <Button className="rounded-br-lg">=</Button>
