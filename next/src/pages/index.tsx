@@ -34,8 +34,8 @@ const Calculator: NextPage = () => {
     setFloat(true);
   }
 
-  const DotButton = ({ className, children }: ButtonProps) => {
-    return <Button onClick={handleDotClick} className={className}>{children}</Button>
+  const DotButton = ({ className = "" }) => {
+    return <Button onClick={handleDotClick} className={className}>.</Button>
   } 
 
   return (
@@ -67,7 +67,7 @@ const Calculator: NextPage = () => {
             <NumButton>3</NumButton>
             <OpButton>+</OpButton>
             <NumButton className="col-span-2 rounded-bl-lg">0</NumButton>
-            <DotButton>.</DotButton>
+            <DotButton />
             <Button className="rounded-br-lg">=</Button>
           </div>
         </div>
