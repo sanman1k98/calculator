@@ -14,8 +14,8 @@ const Calculator: NextPage = () => {
     setDisplay(display + e.currentTarget.textContent)
   }
 
-    return <Button onClick={handleNumClick}>{children}</Button>
   const NumButton = ({ className, children }: ButtonProps) => {
+    return <Button onClick={handleNumClick} className={className}>{children}</Button>
   }
 
   const handleOpClick: ButtonHandler = (e) => {
@@ -55,8 +55,8 @@ const Calculator: NextPage = () => {
             <NumButton>2</NumButton>
             <NumButton>3</NumButton>
             <OpButton>+</OpButton>
-            <Button className="col-span-2 rounded-bl-lg">0</Button>
             <Button>.</Button>
+            <NumButton className="col-span-2 rounded-bl-lg">0</NumButton>
             <Button className="rounded-br-lg">=</Button>
           </div>
         </div>
