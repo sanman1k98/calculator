@@ -1,4 +1,4 @@
-type ButtonProps = {
+export type ButtonProps = {
     onClick?: React.MouseEventHandler<HTMLButtonElement>,
     className?: string,
     children: React.ReactNode,

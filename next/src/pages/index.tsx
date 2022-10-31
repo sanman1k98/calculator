@@ -1,27 +1,29 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import React, { useState } from "react";
-import Button from "~/components/Button";
+import { useState } from "react";
+import Button, { ButtonProps } from "~/components/Button";
+
+type ButtonHandler = React.MouseEventHandler<HTMLButtonElement>
 
 const Calculator: NextPage = () => {
   const [operation, setOperation] = useState("")
   const [display, setDisplay] = useState("");
 
-  const handleNumClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleNumClick: ButtonHandler = (e) => {
     console.log(`Clicked on: ${e.currentTarget.textContent}`)
     setDisplay(display + e.currentTarget.textContent)
   }
 
-  const NumButton = ({ children }: { children: React.ReactNode }) => {
     return <Button onClick={handleNumClick}>{children}</Button>
+  const NumButton = ({ className, children }: ButtonProps) => {
   }
 
-  const handleOpClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleOpClick: ButtonHandler = (e) => {
     console.log(`Set operation to: ${e.currentTarget.textContent}`);
     setOperation(e.currentTarget.textContent || "");
   }
 
-  const OpButton = ({ children }: { children: React.ReactNode }) => {
+  const OpButton = ({ children }: ButtonProps) => {
     return <Button onClick={handleOpClick} className="bg-orange-400 hover:bg-orange-300">{children}</Button>
   }
 
