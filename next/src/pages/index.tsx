@@ -7,12 +7,21 @@ type ButtonHandler = React.MouseEventHandler<HTMLButtonElement>
 
 const Calculator: NextPage = () => {
   const [display, setDisplay] = useState("");
+  const [clearOnNum, setClearOnNum] = useState(false);
+  const [firstOperand, setFirstOperand] = useState("");
+  const [secondOperand, setSecondOperand] = useState("");
+  const [whichOperand, setWhichOperand] = useState(0);    // first operand
   const [operation, setOperation] = useState("");
   const [float, setFloat] = useState(false);
 
   const handleNumClick: ButtonHandler = (e) => {
-    console.log(`Clicked on: ${e.currentTarget.textContent}`)
-    setDisplay(display + e.currentTarget.textContent)
+    if (clearOnNum) {
+      setDisplay(e.currentTarget.textContent || "");
+      setFloat(false);
+      setClearOnNum(false);
+    } else {
+      setDisplay(display + e.currentTarget.textContent)
+    }
   }
 
   const NumButton = ({ className, children }: ButtonProps) => {
@@ -20,8 +29,16 @@ const Calculator: NextPage = () => {
   }
 
   const handleOpClick: ButtonHandler = (e) => {
-    console.log(`Set operation to: ${e.currentTarget.textContent}`);
-    setOperation(e.currentTarget.textContent || "");
+    if (whichOperand === 0) {
+      setOperation(e.currentTarget.textContent || "");
+      setFirstOperand(display);
+      setClearOnNum(true);
+      console.log("should clear on next number")
+      setWhichOperand(1);
+      setFloat(false);
+    } else {
+      setOperation(e.currentTarget.textContent || "");
+    }
   }
 
   const OpButton = ({ children }: ButtonProps) => {
@@ -29,9 +46,15 @@ const Calculator: NextPage = () => {
   }
 
   const handleDotClick: ButtonHandler = () => {
-    if (float) return;
-    setDisplay(display + ".");
-    setFloat(true);
+    if (float) {
+      return;
+    } else if (clearOnNum) {
+      setDisplay("0.");
+      setFloat(true);
+    } else {
+      setDisplay(display + ".");
+      setFloat(true);
+    }
   }
 
   const DotButton = ({ className = "" }) => {
