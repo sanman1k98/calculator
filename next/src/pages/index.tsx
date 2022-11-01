@@ -71,8 +71,32 @@ const Calculator: NextPage = () => {
   }
 
   const handleEqualsClick: ButtonHandler = () => {
-    console.log("Equals button clicked!")
-    return
+    if (operation === "") return;
+
+    let route = "";
+    switch (true) {
+      case operation === "+" || operation === "add":
+        route = "add";
+        break;
+      case operation === "x" || operation === "*" || operation === "mul":
+        route = "mul";
+        break;
+      case operation === "/" || operation === "div":
+        route = "div";
+        break;
+      case operation === "-" || operation === "sub":
+        route = "sub";
+        break;
+    }
+
+    const params = new URLSearchParams({
+      x: firstOperand,
+      y: secondOperand === "" ? firstOperand : secondOperand,
+    });
+
+    fetch(`/api/form/${route}`, { method: "POST", body: params })
+      .then(res => res.text())
+      .then(data => setDisplay(data));
   }
 
   const EqualsButton = ({ className = "" }) => {
