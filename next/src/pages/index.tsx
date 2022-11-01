@@ -70,6 +70,15 @@ const Calculator: NextPage = () => {
     return <Button onClick={handleClearClick} className={className}>C</Button>
   }
 
+  const handleEqualsClick: ButtonHandler = () => {
+    console.log("Equals button clicked!")
+    return
+  }
+
+  const EqualsButton = ({ className = "" }) => {
+    return <Button onClick={handleEqualsClick} className={`bg-orange-400 hover:bg-orange-300 ${className}`}>=</Button>
+  }
+
   return (
     <>
       <Head>
@@ -100,7 +109,7 @@ const Calculator: NextPage = () => {
             <OpButton>+</OpButton>
             <NumButton className="col-span-2 rounded-bl-lg">0</NumButton>
             <DotButton />
-            <Button className="rounded-br-lg">=</Button>
+            <EqualsButton className="rounded-br-lg" />
           </div>
         </div>
       </div>
